@@ -1,0 +1,351 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chat App</title>
+    <style>
+      body{
+    background-image: linear-gradient(to right top, #268f8d, #4699a7, #6da1ba, #90a9c4, #aeb2c9);
+    height: 100vh;
+    overflow-y: hidden;
+
+}
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  ::selection {
+    color: #000000;
+    background: #fff;
+  }
+  nav {
+    position: fixed;
+    background: #363e41;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 12;
+  }
+  nav .menu {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+  .menu .logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+  }
+  .menu ul {
+    display: inline-flex;
+  }
+  .menu ul li {
+    list-style: none;
+    margin-left: 7px;
+  }
+  .menu ul li:first-child {
+    margin-left: 0px;
+  }
+  .menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .menu ul li a:hover {
+    background: #fff;
+    color: black;
+  }
+.wrapping{
+    border: 50px;
+    /* padding:0.600em 0.300em; */
+
+    padding-left: 170px;
+    
+    padding-top:30px;
+    padding-bottom:30px;
+
+    height: 80%;
+    width: 70%;
+}
+.button{
+    border: none;
+    padding: 0.625em;
+    border-radius:0.5em;
+    cursor: pointer;
+
+
+}
+.button:hover{
+    filter:brightness(0.9);
+}
+.button:active{
+    transform: translateY(2px);
+}
+.person-selector{
+    display: flex;
+    justify-content: center;
+    gap:1em;
+    margin:3em auto 1em;
+    max-width: 40em;
+
+}
+.person-selector-button{
+    width: 100%;
+    background-color: #B2A59B;
+    color: rgb(31, 35, 33);
+    font-size:1.1em;
+
+}
+.active-person{
+    background-color: #607274;
+    box-shadow: 0 0 0.5em 0.1em #070F2B;
+}
+
+.chat-container{
+   background: #181105; 
+   font-family: 'Times New Roman', Times, serif;
+   border-radius: 0.5em;
+   padding: 0.5em 1.25em;
+   margin: auto;
+   max-width:37.5em;
+   height: 37.5em;
+   box-shadow: 0 0 1.25em 0.5em #987b8a;
+
+
+}
+
+.chat-header{
+    margin-bottom: 1em;
+    color: #31363F;
+
+}
+
+.chat-header h2{
+    font-size: 1.25em;
+    font-weight: bold;
+}
+.chat-messages{
+    height:23em;
+    overflow-y: scroll;
+}
+.chat-messages::-webkit-scrollbar{
+    display:none;
+}
+.message{
+    padding:0.625em;
+    border-radius: 1em;
+    margin-bottom:0.625em;
+    display:flex;
+    color: white;
+    flex-direction: column;
+
+
+
+}
+.message-sender{
+    font-weight: bold;
+    margin-bottom:0.31em;
+
+
+}
+.message-text{
+    font-size:1em ;
+    margin-bottom: 0.31em;
+    word-wrap: break-word;
+
+}
+.message-timestamp{
+    font-size: 0.75em;
+    text-align: right;
+}
+.blue-bg{
+    background-color: #070F2B;
+}
+.gray-bg{
+    background-color: #607274 ;
+}
+.chat-input-form{
+    display:flex;
+    align-items: center;
+    margin-top: 2em;
+    gap: 0.625em;
+}
+.chat-input{
+    padding: 0.625em;
+    border: none;
+    border-radius : 0.5em;
+    background-color: black; 
+    color: white;
+    font-size: 1em;
+    flex-grow:1;
+
+}
+.send-button{
+    background-color: #1b3132;
+    color:white;
+    font-size: 1em;
+    font-weight: bold;
+    width:80px;
+    padding:8px;
+    border-radius:8px;
+
+
+    
+
+}
+.clear-chat-button{
+    display:block;
+    margin: 2.5em auto; 
+}
+    </style>
+
+
+</head>
+<body>
+    <nav>
+        <div class="menu">
+          <div class="logo">
+            <a href="#">Fluentify</a>
+          </div>
+          <ul>
+            <li><a href="/home">Home</a></li>
+            <li><a href="/courses">Courses</a></li>
+            <li><a href="/abt2">About</a></li>
+            <li><a href="/contact">Contact</a></li>
+            <li><a href="/register">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+
+    <div class="wrapping">
+    <div class="person-selector">
+        <button class="button person-selector-button active-person" id="one-selector">User 1</button>
+        <button class="button person-selector-button" id="two-selector">User 2</button>
+
+        
+    </div>
+    <div class="container">
+        <h2 class="chat-header">Learner 1 chatting...</h2>
+        <div class="chat-messages">
+            <div class="message blue-bg"> 
+                
+                        <div class="message-sender">Learner 1</div>
+                        <div class="message-text">Hi Learner 2, How are you?</div>
+                        <div class="message-timestamp">1:00 AM</div>
+                    
+                    
+                    
+                
+
+            </div>
+            <div class="message gray-bg">
+                <div class="message-sender">Learner 2</div>
+                <div class="message-text">Hi Learner 1, I am also fine, thanks! And what about you?</div>
+                <div class="message-timestamp">10:36 AM</div>
+            </div>  
+          
+
+        </div>
+        <form class="chat-input-form">
+            <input type="text" class="chat-input" required placeholder="Type here, learner..."/>
+            <button type="button" class="send-button">Send</button> 
+
+        </form>
+        <button class="button clear-chat-button">Clear Chat</button>
+    </div>
+    </div>
+    
+
+    <script>
+      const oneSelectorBtn = document.querySelector('#one-selector')
+const twoSelectorBtn = document.querySelector('#two-selector')
+const chatHeader = document.querySelector('.chat-header')
+const chatMessages = document.querySelector('.chat-messages')
+const chatInputForm = document.querySelector('.chat-input-form')
+const chatInput = document.querySelector('.chat-input')
+const clearChatBtn = document.querySelector('.clear-chat-button')
+
+
+const messages = JSON.parse(localStorage.getItem('messages')) ||  []
+const createChatMessageElement = (message) => `
+<div class=" message ${message.sender === 'Learner 1' ? 'blue-bg' : 'gray-bg'}">
+    <div class=" message-sender">${message.sender}</div>
+    <div class="message-text">${message.text}</div>
+    <div class = "message-timestamp">${message.timestamp}</div>
+</div>
+
+`
+
+window.onload = () => {
+    message.forEach((message) => {
+        chatMessages.innerHTML += createChatMessageElement(message)
+        
+    });
+}
+let messageSender = 'Learner 1'
+
+const updateMessageSender = (name) => {
+    messageSender= name
+    chatHeader.innerText=`${messageSender} chatting...`
+    chatInput.placeholder=`Type here, ${messageSender}...`
+
+    if (name==='Learner 1'){
+        oneSelectorBtn.classList.add('active-person')
+        twoSelectorBtn.classList.remove('active-person')
+    }
+    
+    if (name==='Learner 2'){
+        twoSelectorBtn.classList.add('active-person')
+        oneSelectorBtn.classList.remove('active-person')
+    }
+
+    chatInput.focus()
+
+
+}
+oneSelectorBtn.onclick = () => updateMessageSender ('Learner 1')
+twoSelectorBtn.onclick = () => updateMessageSender ('Learner 2')
+const sendMessage = (e) => {
+    e.preventDefault()
+
+
+    const timestamp = new Date().toLocaleString('en-US', {hour : 'numeric', minute: 'numeric', hour12: true})
+    const message = {
+        sender: messageSender,
+        text: chatInput.value,
+        timestamp, 
+    }
+
+    messages.push(message)
+    localStorage.setItem('messages',JSON.stringify(message))
+
+
+    chatMessages.innerHTML += createChatMessageElement(message)
+
+    chatInputForm.reset()
+    chatMessages.scrollTop = chatMessages.scrollHeight 
+
+}
+
+chatInputForm.addEventListener('submit',sendMessage)
+
+clearChatBtn.addEventListener('click', () =>{
+    localStorage.clear()
+    chatMessages.innerHTML = ''
+})
+
+
+    </script>
+    
+</body>
+</html>
