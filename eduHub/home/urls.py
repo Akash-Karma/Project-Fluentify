@@ -15,4 +15,9 @@ urlpatterns = [
     path("teachers", views.teachers, name='teachers'),
     path("teacher_profile", views.teacher_profile, name='teacher_profile'),
     path("chat", views.chat, name='chat'),
+    path("playlist", views.playlist, name='playlist'),
+    path("error_checking", views.error_checking, name='error_checking'),
+    path("profile", views.profile, name='profile'),
+    path("update", views.update, name='update'),
+    path("login", views.login, name='login'),
 ]

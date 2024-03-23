@@ -35,4 +35,9 @@ urlpatterns = [
     path("teachers/", include('home.urls')),
     path("teacher_profile/", include('home.urls')),
     path("chat/", include('home.urls')),
+    path("playlist/", include('home.urls')),
+    path("error_checking/", include('home.urls')),
+    path("profile/", include('home.urls')),
+    path("update/", include('home.urls')),
+    path("login/", include('home.urls')),
 ]

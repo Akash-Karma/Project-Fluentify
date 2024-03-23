@@ -44,3 +44,17 @@ def teacher_profile(request):
 def chat(request):
     return render(request,'chat.html')
 
+def playlist(request):
+    return render(request,'playlist.html')
+
+def error_checking(request):
+    return render(request,'error_checking.html')
+
+def profile(request):
+    return render(request,'profile.html')
+
+def update(request):
+    return render(request,'update.html')
+
+def login(request):
+    return render(request,'login.html')

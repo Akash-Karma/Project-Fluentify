@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Four Box of Links</title>
+<style>
+    body {
+        font-family: Arial, sans-serif;
+        margin: 0;
+        padding: 0;
+        background-image: url("images/back.jpg");
+    }
+
+    * {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Poppins", sans-serif;
+  }
+  ::selection {
+    color: #000;
+    background: #fff;
+  }
+  nav {
+    position: fixed;
+    background: #1b1b1b;
+    width: 100%;
+    padding: 10px 0;
+    z-index: 12;
+  }
+  nav .menu {
+    max-width: 1250px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 20px;
+  }
+
+  h1{
+    color: antiquewhite;
+    font-family: 'Times New Roman', Times, serif;
+    align-items: center;
+    margin-left: 370px;
+    /* padding-left: 10px; */
+    /* background-color: blueviolet; */
+    width: 680px;
+    border: 4px solid rgb(165, 176, 229);
+
+
+  }
+  .menu .logo a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 35px;
+    font-weight: 600;
+  }
+  .menu ul {
+    display: inline-flex;
+  }
+  .menu ul li {
+    list-style: none;
+    margin-left: 7px;
+  }
+  .menu ul li:first-child {
+    margin-left: 0px;
+  }
+  .menu ul li a {
+    text-decoration: none;
+    color: #fff;
+    font-size: 18px;
+    font-weight: 500;
+    padding: 8px 15px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+  }
+  .menu ul li a:hover {
+    background: #fff;
+    color: black;
+  }
+    .container {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+        padding: 20px;
+    }
+    .box {
+    
+        width: 200px;
+        height: 200px;
+        background-color: #d0afde;
+        margin: 20px;
+        border-radius: 70px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+    }
+    .box a {
+        text-decoration: none;
+        color: #333;
+        font-weight: bold;
+        font-size: 30px;
+    }
+
+    .box a:hover{
+        color: #5d8389;
+
+    }
+</style>
+</head>
+<body>
+
+    <nav>
+        <div class="menu">
+          <div class="logo">
+            <a href="#">Fluentify</a>
+          </div>
+          <ul>
+            <li><a href="home.html">Home</a></li>
+            <li><a href="courses.html">Courses</a></li>
+            <li><a href="abt2.html">About</a></li>
+            <li><a href="contactpage.html">Contact</a></li>
+            <li><a href="register.html">Register</a></li>
+          </ul>
+        </div>
+      </nav>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<br>
+<h1>Choose the Prefered Language to Start Quiz</h1>
+<div class="container">
+    <div class="box">
+        <a href="english/exam.html">English</a>
+    </div>
+    <div class="box">
+        <a href="hindi/exam.html">Hindi</a>
+    </div>
+    <div class="box">
+        <a href="bengali/exam.html">Bengali</a>
+    </div>
+    <div class="box">
+        <a href="french/exam.html">French</a>
+    </div>
+</div>
+
+</body>
+</html>
